@@ -1,8 +1,12 @@
 package concurrent.lesson7;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Account {
 
     private static int generator = 1;
+    private Lock lock = new ReentrantLock();
     private int id;
     private int money;
 
@@ -29,5 +33,13 @@ public class Account {
                 "id=" + id +
                 ", money=" + money +
                 '}';
+    }
+
+    public Lock getLock() {
+        return lock;
+    }
+
+    public void setLock(Lock lock) {
+        this.lock = lock;
     }
 }
